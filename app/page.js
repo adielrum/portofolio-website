@@ -11,10 +11,14 @@ const Home = () => {
       <Header />
       <main className="container mx-auto py-12">
         <Hero />
-        <Skills />
-        <Projects />
+        <div id="skills-section">
+          <Skills />
+        </div>
+        <div id="projects-section">
+          <Projects />
+        </div>
       </main>
-        <Footer />
+      <Footer />
     </div>
   )
 }

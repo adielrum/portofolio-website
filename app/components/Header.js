@@ -15,12 +15,12 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#skills" className="hover:underline">
+              <a href="#skills-section" className="hover:underline">
                 Skills
               </a>
             </li>
             <li>
-              <a href="#projects" className="hover:underline">
+              <a href="#projects-section" className="hover:underline">
                 Projects
               </a>
             </li>
