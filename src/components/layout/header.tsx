@@ -22,7 +22,7 @@ export default function Header() {
       <div className="container mx-auto flex h-14 max-w-screen-2xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <span className="font-bold text-lg bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
-            FolioFlow
+            Adiel Rum
           </span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">

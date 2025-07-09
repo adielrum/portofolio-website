@@ -10,9 +10,9 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              <span className="block">Hi, I'm Alex Doe</span>
+              <span className="block">Hi, I'm Adiel Rum</span>
               <span className="block bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-transparent bg-clip-text">
-                Creative Developer & Data Scientist
+                App Developer & Data Scientist
               </span>
             </h1>
             <p className="max-w-xl mx-auto md:mx-0 text-lg text-gray-300">
