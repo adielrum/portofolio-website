@@ -6,6 +6,7 @@ import Blog from '@/components/sections/blog';
 import Contact from '@/components/sections/contact';
 import Footer from '@/components/layout/footer';
 import AiAdvisor from '@/components/shared/ai-advisor';
+import Chatbox from '@/components/sections/chatbox';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <Chatbox />
         <About />
         <Projects />
         <Blog />

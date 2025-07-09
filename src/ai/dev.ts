@@ -3,3 +3,4 @@ config();
 
 import '@/ai/flows/project-suggestion.ts';
 import '@/ai/flows/portfolio-advisor.ts';
+import '@/ai/flows/personal-chatbot.ts';
