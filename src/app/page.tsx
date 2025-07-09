@@ -9,7 +9,7 @@ import AiAdvisor from '@/components/shared/ai-advisor';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#667eea] to-[#764ba2] dark:from-[#1a1a2e] dark:to-[#16213e] text-white">
       <Header />
       <main className="flex-1">
         <Hero />

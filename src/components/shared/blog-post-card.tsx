@@ -25,17 +25,17 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
           />
         </Link>
         <div className="p-6">
-          <p className="text-sm text-muted-foreground mb-2">{date}</p>
+          <p className="text-sm text-gray-300 mb-2">{date}</p>
           <CardTitle className="text-xl font-bold">
-            <Link href={slug} className="hover:text-primary transition-colors">{title}</Link>
+            <Link href={slug} className="hover:text-pink-300 transition-colors">{title}</Link>
           </CardTitle>
         </div>
       </CardHeader>
       <CardContent className="flex-grow p-6 pt-0">
-        <p className="text-muted-foreground">{description}</p>
+        <p className="text-gray-300">{description}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Button variant="link" className="p-0 h-auto" asChild>
+        <Button variant="link" asChild className="p-0 h-auto text-blue-300 hover:text-blue-200">
           <Link href={slug}>
             Read More <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

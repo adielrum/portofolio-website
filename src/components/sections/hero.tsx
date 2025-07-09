@@ -5,24 +5,24 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative w-full py-20 md:py-32 lg:py-40 bg-gradient-to-br from-background via-violet-50 to-blue-50 dark:from-background dark:via-violet-950/20 dark:to-blue-950/20">
+    <section id="home" className="relative w-full py-20 md:py-32 lg:py-40">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
               <span className="block">Hi, I'm Alex Doe</span>
-              <span className="block bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
+              <span className="block bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-transparent bg-clip-text">
                 Creative Developer & Data Scientist
               </span>
             </h1>
-            <p className="max-w-xl mx-auto md:mx-0 text-lg text-muted-foreground">
+            <p className="max-w-xl mx-auto md:mx-0 text-lg text-gray-300">
               I build beautiful, responsive, and data-driven applications. From crafting intuitive user interfaces to developing complex machine learning models, I love bringing ideas to life with code.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white">
                 <a href="#projects">View My Work</a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="ghost" asChild className="border-2 border-white hover:bg-white/10 hover:text-white">
                 <a href="#contact">Get in Touch</a>
               </Button>
             </div>
@@ -50,7 +50,7 @@ export default function Hero() {
                 src="https://placehold.co/600x600.png"
                 alt="Alex Doe"
                 fill
-                className="rounded-full object-cover border-4 border-primary/20 shadow-lg"
+                className="rounded-full object-cover border-4 border-white/20 shadow-lg"
                 data-ai-hint="professional portrait"
               />
             </div>

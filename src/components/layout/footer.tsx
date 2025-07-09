@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-secondary">
+    <footer className="w-full bg-black/20 backdrop-blur-lg border-t border-white/20">
       <div className="container mx-auto py-8 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
-        <p className="text-sm text-muted-foreground mb-4 md:mb-0">
+        <p className="text-sm text-gray-300 mb-4 md:mb-0">
           © {new Date().getFullYear()} FolioFlow. All rights reserved.
         </p>
         <div className="flex items-center space-x-4">

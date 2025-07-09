@@ -46,11 +46,11 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-background via-violet-50 to-blue-50 dark:from-background dark:via-violet-950/20 dark:to-blue-950/20">
+    <section id="projects" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">My Creations</h2>
-          <p className="max-w-2xl mx-auto text-muted-foreground text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text inline-block">My Creations</h2>
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg">
             Here are some of the projects I'm proud of. They showcase my skills across data science, web, and app development.
           </p>
         </div>
