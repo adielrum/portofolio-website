@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 interface Certification {
   title: string;
@@ -125,7 +126,7 @@ export default function Certifications() {
 
 function CertificationCard({ certification }: { certification: Certification }) {
   return (
-    <div className="relative group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2 bg-white/10 border border-white/20">
+    <Card className="relative group overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2">
       <Link href={certification.link} className="absolute inset-0 z-10" prefetch={false}>
         <span className="sr-only">View Certification</span>
       </Link>
@@ -146,6 +147,6 @@ function CertificationCard({ certification }: { certification: Certification }) 
           View Certificate <ChevronRight className="ml-1 h-4 w-4" />
         </Link>
       </div>
-    </div>
+    </Card>
   );
 }
