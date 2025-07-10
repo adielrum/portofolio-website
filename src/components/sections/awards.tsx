@@ -54,24 +54,28 @@ export default function Awards() {
 
 function AwardCard({ award }: { award: Award }) {
   return (
-    <Card className="grid md:grid-cols-4 gap-8 p-6">
-      <div className="md:col-span-1">
-        <Image
-          src={award.image}
-          alt={`${award.issuer} logo`}
-          width={50}
-          height={50}
-          className="rounded-full mb-4 object-cover"
-        />
-        <CardTitle className="text-xl font-bold text-white">
+    <Card className="p-6 flex flex-col">
+      <div className="text-center w-full">
+        <CardTitle className="text-xl font-bold text-white mb-4">
           {award.title}
         </CardTitle>
-        <p className="text-gray-300">{award.issuer}</p>
-        <p className="text-gray-400 text-sm">{award.date}</p>
       </div>
-      <CardContent className="md:col-span-3 space-y-4 p-0">
-        <p className="text-gray-300">{award.description}</p>
-      </CardContent>
+      <div className="grid md:grid-cols-4 gap-8">
+        <div className="md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
+          <Image
+            src={award.image}
+            alt={`${award.issuer} logo`}
+            width={50}
+            height={50}
+            className="rounded-full mb-4 object-cover"
+          />
+          <p className="text-gray-300">{award.issuer}</p>
+          <p className="text-gray-400 text-sm">{award.date}</p>
+        </div>
+        <CardContent className="md:col-span-3 space-y-4 p-0 flex items-center">
+          <p className="text-gray-300">{award.description}</p>
+        </CardContent>
+      </div>
     </Card>
   );
 }
