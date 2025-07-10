@@ -10,6 +10,7 @@ import Chatbox from '@/components/sections/chatbox';
 import Certifications from '@/components/sections/certifications';
 import Experience from '@/components/sections/experience';
 import Education from '@/components/sections/education';
+import Awards from '@/components/sections/awards';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <Certifications />
         <Education />
+        <Awards />
         <Blog />
         <Contact />
       </main>
