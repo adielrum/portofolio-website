@@ -9,6 +9,7 @@ import AiAdvisor from '@/components/shared/ai-advisor';
 import Chatbox from '@/components/sections/chatbox';
 import Certifications from '@/components/sections/certifications';
 import Experience from '@/components/sections/experience';
+import Education from '@/components/sections/education';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Experience />
         <Projects />
         <Certifications />
+        <Education />
         <Blog />
         <Contact />
       </main>
