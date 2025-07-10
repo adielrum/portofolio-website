@@ -142,6 +142,9 @@ function CertificationCard({ certification }: { certification: Certification }) 
         <Badge className="bg-gradient-to-br from-white/20 to-white/10 border-white/20 border text-white backdrop-blur-sm px-3 py-1 text-xs font-medium">
           {certification.date}
         </Badge>
+        <Link href={certification.link} target="_blank" rel="noopener noreferrer" className="mt-4 text-blue-300 hover:text-blue-200 flex items-center">
+          View Certificate <ChevronRight className="ml-1 h-4 w-4" />
+        </Link>
       </div>
     </div>
   );
