@@ -25,7 +25,7 @@ export default function Home() {
         <Certifications />
         <Education />
         <Awards />
-        <Blog />
+        {/* <Blog /> */}
         <Contact />
       </main>
       <AiAdvisor />
