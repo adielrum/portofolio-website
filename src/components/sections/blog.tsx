@@ -30,7 +30,7 @@ const blogPosts: BlogPost[] = [
 
 export default function Blog() {
   return (
-    <section id="blog" className="w-full py-16 md:py-24 lg:py-32">
+    <section id="blog" className="w-full py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">From My Blog</h2>

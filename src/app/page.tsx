@@ -7,6 +7,7 @@ import Contact from '@/components/sections/contact';
 import Footer from '@/components/layout/footer';
 import AiAdvisor from '@/components/shared/ai-advisor';
 import Chatbox from '@/components/sections/chatbox';
+import Certifications from '@/components/sections/certifications';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Chatbox />
         <About />
         <Projects />
+        <Certifications />
         <Blog />
         <Contact />
       </main>

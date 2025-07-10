@@ -46,7 +46,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full py-16 md:py-24 lg:py-32">
+    <section id="projects" className="w-full py-8 md:py-12 lg:py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text inline-block">My Creations</h2>
@@ -54,7 +54,7 @@ export default function Projects() {
             Here are some of the projects I'm proud of. They showcase my skills across data science, web, and app development.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
