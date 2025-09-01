@@ -47,8 +47,8 @@ export default function Hero() {
           <div className="relative w-full max-w-sm mx-auto lg:max-w-md">
             <div className="relative aspect-square">
                <Image
-                src="https://placehold.co/600x600.png"
-                alt="Alex Doe"
+                src="/profile.jpg"
+                alt="Profile Image"
                 fill
                 className="rounded-full object-cover border-4 border-white/20 shadow-lg"
                 data-ai-hint="professional portrait"

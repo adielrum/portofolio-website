@@ -16,19 +16,19 @@ interface Education {
 
 const education: Education[] = [
   {
-    institution: "University of Example",
-    degree: "Bachelor of Science in Computer Science",
-    date: "2018 - 2022",
+    institution: "Institut Teknologi Bandung",
+    degree: "Bachelor of Science in Mathematics, Minor in Computer Science",
+    date: "2023 - 2027",
     description: [
-      "Focused on software development, data structures, and algorithms.",
+      "Dean's List for four consecutive semesters.",
       "Completed a final year project on machine learning.",
       "Active member of the university's coding club.",
     ],
     relevantCourses: [
-      "Data Structures",
-      "Algorithms",
-      "Machine Learning",
-      "Web Development",
+      "Data Analysis",
+      "Algorithm Design",
+      "Linear Algebra",
+      "Probability and Statistics",
       "Databases",
     ],
     image: "https://placehold.co/150x150.png",
