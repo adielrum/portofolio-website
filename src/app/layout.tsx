@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/shared/theme-provider';
+import ScrollProgress from '@/components/shared/scroll-progress';
 
 export const metadata: Metadata = {
   title: 'FolioFlow',
@@ -23,13 +24,14 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
       </head>
-      <body className="font-body antialiased text-gray-200 selection:bg-pink-500/80 selection:text-white">
+      <body className="font-body antialiased text-gray-200 selection:bg-white/30 selection:text-white">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress />
           {children}
           <Toaster />
         </ThemeProvider>

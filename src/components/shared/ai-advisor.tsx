@@ -63,7 +63,7 @@ export default function AiAdvisor() {
       setSuggestionResult(result);
     } catch (error) {
       console.error(error);
-       toast({
+      toast({
         variant: 'destructive',
         title: 'An error occurred',
         description: 'Could not get suggestions. Please try again.',
@@ -76,7 +76,7 @@ export default function AiAdvisor() {
   return (
     <>
       <Button
-        className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg"
+        className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl bg-white text-black hover:bg-gray-200 transition-transform hover:scale-105 z-50"
         size="icon"
         onClick={() => setIsOpen(true)}
       >
@@ -84,44 +84,45 @@ export default function AiAdvisor() {
         <span className="sr-only">AI Portfolio Advisor</span>
       </Button>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-2xl">
+        <DialogContent className="sm:max-w-2xl bg-black border border-white/20 text-white">
           <DialogHeader>
-            <DialogTitle>AI Portfolio Advisor</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-2xl font-bold">AI Portfolio Advisor</DialogTitle>
+            <DialogDescription className="text-gray-400">
               Get AI-powered help to improve your portfolio.
             </DialogDescription>
           </DialogHeader>
           <Tabs defaultValue="improve" className="w-full">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="improve">Improve Description</TabsTrigger>
-              <TabsTrigger value="suggest">Suggest Projects</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 bg-white/10">
+              <TabsTrigger value="improve" className="data-[state=active]:bg-white data-[state=active]:text-black text-gray-300">Improve Description</TabsTrigger>
+              <TabsTrigger value="suggest" className="data-[state=active]:bg-white data-[state=active]:text-black text-gray-300">Suggest Projects</TabsTrigger>
             </TabsList>
             <TabsContent value="improve" className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="description">Project Description</Label>
+                <Label htmlFor="description" className="text-gray-300">Project Description</Label>
                 <Textarea
                   id="description"
                   placeholder="Paste your project description here..."
                   rows={5}
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  className="bg-black border-white/20 focus:border-white text-white placeholder:text-gray-600"
                 />
               </div>
-              <Button onClick={handleImproveDescription} disabled={isImproving || !description}>
+              <Button onClick={handleImproveDescription} disabled={isImproving || !description} className="bg-white text-black hover:bg-gray-200 w-full">
                 {isImproving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Get Suggestions
               </Button>
-              {isImproving && <p className="text-sm text-muted-foreground">AI is thinking...</p>}
+              {isImproving && <p className="text-sm text-gray-400 text-center">AI is thinking...</p>}
               {improvementResult && (
-                <Card>
+                <Card className="bg-white/5 border-white/10">
                   <CardContent className="p-6 space-y-4">
                     <div>
-                      <h4 className="font-semibold">Improved Description:</h4>
-                      <p className="text-sm text-muted-foreground">{improvementResult.improvedDescription}</p>
+                      <h4 className="font-semibold text-white mb-2">Improved Description:</h4>
+                      <p className="text-sm text-gray-300 leading-relaxed">{improvementResult.improvedDescription}</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold">Suggestions:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      <h4 className="font-semibold text-white mb-2">Suggestions:</h4>
+                      <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
                         {improvementResult.suggestions.map((s, i) => <li key={i}>{s}</li>)}
                       </ul>
                     </div>
@@ -132,35 +133,37 @@ export default function AiAdvisor() {
             <TabsContent value="suggest" className="space-y-4 py-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="skills">Your Skills</Label>
+                  <Label htmlFor="skills" className="text-gray-300">Your Skills</Label>
                   <Input
                     id="skills"
                     placeholder="e.g., React, Python, SQL"
                     value={skills}
                     onChange={(e) => setSkills(e.target.value)}
+                    className="bg-black border-white/20 focus:border-white text-white placeholder:text-gray-600"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="interests">Your Interests</Label>
+                  <Label htmlFor="interests" className="text-gray-300">Your Interests</Label>
                   <Input
                     id="interests"
                     placeholder="e.g., Machine Learning, UI/UX"
                     value={interests}
                     onChange={(e) => setInterests(e.target.value)}
+                    className="bg-black border-white/20 focus:border-white text-white placeholder:text-gray-600"
                   />
                 </div>
               </div>
-              <Button onClick={handleSuggestProjects} disabled={isSuggesting || !skills || !interests}>
+              <Button onClick={handleSuggestProjects} disabled={isSuggesting || !skills || !interests} className="bg-white text-black hover:bg-gray-200 w-full">
                 {isSuggesting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Suggest New Projects
               </Button>
-               {isSuggesting && <p className="text-sm text-muted-foreground">AI is thinking...</p>}
+              {isSuggesting && <p className="text-sm text-gray-400 text-center">AI is thinking...</p>}
               {suggestionResult && (
-                 <Card>
+                <Card className="bg-white/5 border-white/10">
                   <CardContent className="p-6 space-y-4">
                     <div>
-                      <h4 className="font-semibold">Suggested Projects:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                      <h4 className="font-semibold text-white mb-2">Suggested Projects:</h4>
+                      <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
                         {suggestionResult.suggestedProjects.map((p, i) => <li key={i}>{p}</li>)}
                       </ul>
                     </div>
@@ -170,7 +173,7 @@ export default function AiAdvisor() {
             </TabsContent>
           </Tabs>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setIsOpen(false)}>Close</Button>
+            <Button variant="outline" onClick={() => setIsOpen(false)} className="border-white/20 text-white hover:bg-white hover:text-black">Close</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
