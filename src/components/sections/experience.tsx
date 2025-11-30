@@ -5,41 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-interface ExperienceItem {
-  title: string;
-  company: string;
-  duration: string;
-  description: string[];
-  technologies: string[];
-  image: string,
-}
+import { experience } from '@/data';
 
-const experience: ExperienceItem[] = [
-  {
-    title: 'Software Engineer',
-    company: 'Tech Solutions Inc.',
-    duration: 'Jan 2022 - Present',
-    description: [
-      'Developed and maintained web applications using React, Node.js, and PostgreSQL.',
-      'Implemented RESTful APIs and integrated third-party services.',
-      'Collaborated with cross-functional teams to define, design, and ship new features.',
-    ],
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'TypeScript', 'AWS'],
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=TS',
-  },
-  {
-    title: 'Data Scientist',
-    company: 'Data Insights Co.',
-    duration: 'Jul 2019 - Dec 2021',
-    description: [
-      'Built and deployed machine learning models for predictive analytics.',
-      'Performed data cleaning, analysis, and visualization using Python and R.',
-      'Developed dashboards to present key insights to stakeholders.',
-    ],
-    technologies: ['Python', 'R', 'Pandas', 'Scikit-learn', 'TensorFlow', 'Tableau'],
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=DI',
-  },
-];
 
 export default function Experience() {
   return (

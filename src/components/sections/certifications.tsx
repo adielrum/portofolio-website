@@ -9,51 +9,9 @@ import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 
-interface Certification {
-  title: string;
-  issuer: string;
-  date: string;
-  image: string;
-  link: string;
-}
+import { certifications } from "@/data";
+import type { Certification } from "@/lib/types";
 
-const certifications: Certification[] = [
-  {
-    title: 'Google Cloud Professional Data Engineer',
-    issuer: 'Google Cloud',
-    date: 'October 2023',
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=GCP',
-    link: '#',
-  },
-  {
-    title: 'AWS Certified Solutions Architect - Associate',
-    issuer: 'Amazon Web Services',
-    date: 'September 2023',
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=AWS',
-    link: '#',
-  },
-  {
-    title: 'Microsoft Certified: Azure Data Scientist Associate',
-    issuer: 'Microsoft',
-    date: 'August 2023',
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=Azure',
-    link: '#',
-  },
-  {
-    title: 'TensorFlow Developer Certificate',
-    issuer: 'Google',
-    date: 'July 2023',
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=TF',
-    link: '#',
-  },
-  {
-    title: 'Certified Kubernetes Administrator',
-    issuer: 'CNCF',
-    date: 'June 2023',
-    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=CKA',
-    link: '#',
-  },
-];
 
 export default function Certifications() {
   const scrollRef = useRef<HTMLDivElement>(null);

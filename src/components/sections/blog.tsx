@@ -1,32 +1,8 @@
 import BlogPostCard from '@/components/shared/blog-post-card';
 import type { BlogPost } from '@/lib/types';
 
-const blogPosts: BlogPost[] = [
-  {
-    title: 'The Rise of Large Language Models',
-    description: 'A deep dive into the architecture and impact of LLMs like GPT-3, and what they mean for the future of AI and development.',
-    image: 'https://placehold.co/600x400.png',
-    date: 'October 26, 2023',
-    slug: '#',
-    dataAiHint: 'artificial intelligence brain',
-  },
-  {
-    title: 'My Journey into Web Development',
-    description: 'From "Hello World" to a full-stack application. A personal story about learning to code and navigating the world of web development.',
-    image: 'https://placehold.co/600x400.png',
-    date: 'September 15, 2023',
-    slug: '#',
-    dataAiHint: 'person coding laptop',
-  },
-  {
-    title: 'Top 10 Libraries for Data Science in Python',
-    description: 'An essential list of Python libraries that every data scientist should know, from data manipulation with Pandas to deep learning with TensorFlow.',
-    image: 'https://placehold.co/600x400.png',
-    date: 'August 02, 2023',
-    slug: '#',
-    dataAiHint: 'python code',
-  },
-];
+import { blogPosts } from '@/data';
+
 
 export default function Blog() {
   return (

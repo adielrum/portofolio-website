@@ -6,30 +6,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy } from "lucide-react";
 
-interface Award {
-  title: string;
-  date: string;
-  issuer: string;
-  description: string;
-  image: string;
-}
+import { awards } from "@/data";
+import type { Award } from "@/lib/types";
 
-const awards: Award[] = [
-  {
-    title: "Best Final Year Project",
-    date: "May 2022",
-    issuer: "University of Example",
-    description: "Awarded for the most innovative and well-executed final year project in the computer science department.",
-    image: "https://placehold.co/150x150/1a1a1a/ffffff.png?text=Award",
-  },
-  {
-    title: "Hackathon Winner",
-    date: "March 2021",
-    issuer: "Tech Conference 2021",
-    description: "First place in a 24-hour hackathon for developing a mobile app that solves a real-world problem.",
-    image: "https://placehold.co/150x150/1a1a1a/ffffff.png?text=Hack",
-  },
-];
 
 export default function Awards() {
   return (

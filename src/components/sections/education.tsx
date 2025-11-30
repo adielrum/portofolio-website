@@ -5,53 +5,9 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-interface Education {
-  institution: string;
-  degree: string;
-  date: string;
-  description: string[];
-  relevantCourses: string[];
-  image: string;
-}
+import { education } from "@/data";
+import type { Education } from "@/lib/types";
 
-const education: Education[] = [
-  {
-    institution: "Institut Teknologi Bandung",
-    degree: "Bachelor of Science in Mathematics, Minor in Computer Science",
-    date: "2023 - 2027",
-    description: [
-      "Dean's List for four consecutive semesters.",
-      "Completed a final year project on machine learning.",
-      "Active member of the university's coding club.",
-    ],
-    relevantCourses: [
-      "Data Analysis",
-      "Algorithm Design",
-      "Linear Algebra",
-      "Probability and Statistics",
-      "Databases",
-    ],
-    image: "https://placehold.co/150x150/1a1a1a/ffffff.png?text=ITB",
-  },
-  {
-    institution: "Another University",
-    degree: "Master of Science in Artificial Intelligence",
-    date: "2022 - 2024",
-    description: [
-      "Specialized in deep learning, natural language processing, and computer vision.",
-      "Published a paper on novel neural network architectures.",
-      "Teaching Assistant for undergraduate AI course.",
-    ],
-    relevantCourses: [
-      "Deep Learning",
-      "NLP",
-      "Computer Vision",
-      "Reinforcement Learning",
-      "AI Ethics",
-    ],
-    image: "https://placehold.co/150x150/1a1a1a/ffffff.png?text=UNI",
-  },
-];
 
 export default function Education() {
   return (

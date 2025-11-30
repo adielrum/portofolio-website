@@ -4,48 +4,8 @@ import ProjectCard from '@/components/shared/project-card';
 import type { Project } from '@/lib/types';
 import { motion } from 'framer-motion';
 
-const projects: Project[] = [
-  {
-    title: 'Data Visualization Dashboard',
-    description: 'An interactive dashboard for visualizing complex sales data, built with React and D3.js. Features real-time data updates and customizable charts.',
-    image: 'https://placehold.co/600x400/1a1a1a/ffffff.png?text=Dashboard',
-    tags: ['React', 'D3.js', 'Node.js', 'Dashboard'],
-    category: 'Data Science',
-    liveUrl: '#',
-    githubUrl: '#',
-    dataAiHint: 'data dashboard',
-  },
-  {
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce website with features like product catalog, shopping cart, and Stripe integration for payments. Built with Next.js and MongoDB.',
-    image: 'https://placehold.co/600x400/1a1a1a/ffffff.png?text=E-commerce',
-    tags: ['Next.js', 'MongoDB', 'Stripe', 'E-commerce'],
-    category: 'Web Development',
-    liveUrl: '#',
-    githubUrl: '#',
-    dataAiHint: 'online shopping',
-  },
-  {
-    title: 'Mobile Task Manager',
-    description: 'A cross-platform mobile app for task management. Built with React Native and Firebase, it allows users to organize tasks, set reminders, and collaborate.',
-    image: 'https://placehold.co/600x400/1a1a1a/ffffff.png?text=Mobile+App',
-    tags: ['React Native', 'Firebase', 'iOS', 'Android'],
-    category: 'App Development',
-    liveUrl: '#',
-    githubUrl: '#',
-    dataAiHint: 'mobile app interface',
-  },
-  {
-    title: 'Predictive Analytics Model',
-    description: 'A machine learning model to predict customer churn using Python, Scikit-learn, and Pandas. Deployed as a REST API with Flask.',
-    image: 'https://placehold.co/600x400/1a1a1a/ffffff.png?text=Analytics',
-    tags: ['Python', 'Scikit-learn', 'Flask', 'API'],
-    category: 'Data Science',
-    liveUrl: '#',
-    githubUrl: '#',
-    dataAiHint: 'analytics graph',
-  },
-];
+import { projects } from '@/data';
+
 
 export default function Projects() {
   return (

@@ -4,13 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const skills = {
-  'Languages': ['Python', 'JavaScript/TypeScript', 'SQL', 'R', 'Java'],
-  'Web Development': ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS', 'HTML5', 'CSS3'],
-  'Data Science': ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'PyTorch', 'Matplotlib'],
-  'Databases': ['PostgreSQL', 'MongoDB', 'Firebase', 'SQLite'],
-  'Tools': ['Git', 'Docker', 'Jupyter', 'VS Code', 'Google Cloud Platform'],
-};
+import { skills } from '@/data';
+
 
 export default function About() {
   return (
