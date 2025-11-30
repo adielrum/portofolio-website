@@ -5,8 +5,9 @@ import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { motion } from 'framer-motion';
 
 interface Certification {
   title: string;
@@ -21,35 +22,35 @@ const certifications: Certification[] = [
     title: 'Google Cloud Professional Data Engineer',
     issuer: 'Google Cloud',
     date: 'October 2023',
-    image: 'https://placehold.co/150x150.png',
+    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=GCP',
     link: '#',
   },
   {
     title: 'AWS Certified Solutions Architect - Associate',
     issuer: 'Amazon Web Services',
     date: 'September 2023',
-    image: 'https://placehold.co/150x150.png',
+    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=AWS',
     link: '#',
   },
   {
     title: 'Microsoft Certified: Azure Data Scientist Associate',
     issuer: 'Microsoft',
     date: 'August 2023',
-    image: 'https://placehold.co/150x150.png',
+    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=Azure',
     link: '#',
   },
   {
-    title: 'Microsoft Certified: Azure Data Scientist Associate',
-    issuer: 'Microsoft',
-    date: 'August 2023',
-    image: 'https://placehold.co/150x150.png',
+    title: 'TensorFlow Developer Certificate',
+    issuer: 'Google',
+    date: 'July 2023',
+    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=TF',
     link: '#',
   },
   {
-    title: 'Microsoft Certified: Azure Data Scientist Associate',
-    issuer: 'Microsoft',
-    date: 'August 2023',
-    image: 'https://placehold.co/150x150.png',
+    title: 'Certified Kubernetes Administrator',
+    issuer: 'CNCF',
+    date: 'June 2023',
+    image: 'https://placehold.co/150x150/1a1a1a/ffffff.png?text=CKA',
     link: '#',
   },
 ];
@@ -62,7 +63,7 @@ export default function Certifications() {
   const checkScrollArrows = () => {
     if (scrollRef.current) {
       setShowLeftArrow(scrollRef.current.scrollLeft > 0);
-      setShowRightArrow(scrollRef.current.scrollWidth > scrollRef.current.clientWidth + scrollRef.current.scrollLeft);
+      setShowRightArrow(scrollRef.current.scrollWidth > scrollRef.current.clientWidth + scrollRef.current.scrollLeft + 1);
     }
   };
 
@@ -80,38 +81,54 @@ export default function Certifications() {
   };
 
   return (
-    <section id="certifications" className="w-full py-8 md:py-12 lg:py-16">
+    <section id="certifications" className="w-full py-20 bg-black text-white border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter bg-gradient-to-r from-purple-400 to-indigo-500 text-transparent bg-clip-text inline-block">My Certifications</h2>
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg">
-            A collection of my professional certifications.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4 mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">CERTIFICATIONS</h2>
+          <p className="max-w-2xl mx-auto text-gray-400 text-lg">
+            Professional validations of my technical expertise.
           </p>
-        </div>
-        <div className="relative">
+        </motion.div>
+
+        <div className="relative group">
           {showLeftArrow && (
             <Button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/80 text-white border border-white/20 rounded-full h-12 w-12 hidden md:flex"
               size="icon"
               onClick={() => scroll(-300)}
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
           )}
+
           <div
-            className="flex overflow-x-auto space-x-8 pb-4 hide-scrollbar"
+            className="flex overflow-x-auto space-x-6 pb-8 hide-scrollbar snap-x snap-mandatory"
             ref={scrollRef}
             onScroll={checkScrollArrows}
           >
             {certifications.map((certification, index) => (
-              <div key={index} className="flex-none w-full md:w-1/2 lg:w-1/3">
+              <motion.div
+                key={index}
+                className="flex-none w-[85vw] md:w-[400px] snap-center"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
                 <CertificationCard certification={certification} />
-              </div>
+              </motion.div>
             ))}
           </div>
+
           {showRightArrow && (
             <Button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/80 text-white border border-white/20 rounded-full h-12 w-12 hidden md:flex"
               size="icon"
               onClick={() => scroll(300)}
             >
@@ -126,26 +143,41 @@ export default function Certifications() {
 
 function CertificationCard({ certification }: { certification: Certification }) {
   return (
-    <Card className="relative group overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2">
-      <Link href={certification.link} className="absolute inset-0 z-10" prefetch={false}>
-        <span className="sr-only">View Certification</span>
-      </Link>
-      <div className="p-6 flex flex-col items-center text-center">
-        <Image
-          src={certification.image}
-          alt={certification.title}
-          width={100}
-          height={100}
-          className="rounded-full mb-4 object-cover"
-        />
-        <h3 className="text-xl font-bold text-white mb-2">{certification.title}</h3>
-        <p className="text-gray-300 text-sm mb-1">I{certification.issuer}</p>
-        <Badge className="bg-gradient-to-br from-white/20 to-white/10 border-white/20 border text-white backdrop-blur-sm px-3 py-1 text-xs font-medium">
-          {certification.date}
-        </Badge>
-        <Link href={certification.link} target="_blank" rel="noopener noreferrer" className="mt-4 text-blue-300 hover:text-blue-200 flex items-center">
-          View Certificate <ChevronRight className="ml-1 h-4 w-4" />
-        </Link>
+    <Card className="relative h-full bg-black border border-white/10 hover:border-white/30 transition-all duration-300 group/card overflow-hidden">
+      <div className="p-8 flex flex-col items-center text-center h-full">
+        <div className="relative mb-6">
+          <div className="absolute inset-0 bg-white/5 blur-xl rounded-full transform group-hover/card:scale-110 transition-transform duration-500" />
+          <Image
+            src={certification.image}
+            alt={certification.title}
+            width={80}
+            height={80}
+            className="relative rounded-full object-cover grayscale group-hover/card:grayscale-0 transition-all duration-500 border border-white/10"
+          />
+        </div>
+
+        <h3 className="text-xl font-bold text-white mb-2 group-hover/card:text-gray-200 transition-colors">
+          {certification.title}
+        </h3>
+
+        <p className="text-gray-400 text-sm mb-4 font-medium tracking-wide uppercase">
+          {certification.issuer}
+        </p>
+
+        <div className="mt-auto space-y-4 w-full flex flex-col items-center">
+          <Badge variant="outline" className="border-white/20 text-gray-400 font-normal">
+            {certification.date}
+          </Badge>
+
+          <Link
+            href={certification.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-sm text-white hover:text-gray-300 transition-colors border-b border-transparent hover:border-white pb-0.5"
+          >
+            View Certificate <ExternalLink className="ml-2 h-3 w-3" />
+          </Link>
+        </div>
       </div>
     </Card>
   );

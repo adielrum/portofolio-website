@@ -1,9 +1,9 @@
-
-"use client";
+'use client';
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Education {
   institution: string;
@@ -31,7 +31,7 @@ const education: Education[] = [
       "Probability and Statistics",
       "Databases",
     ],
-    image: "https://placehold.co/150x150.png",
+    image: "https://placehold.co/150x150/1a1a1a/ffffff.png?text=ITB",
   },
   {
     institution: "Another University",
@@ -49,25 +49,38 @@ const education: Education[] = [
       "Reinforcement Learning",
       "AI Ethics",
     ],
-    image: "https://placehold.co/150x150.png",
+    image: "https://placehold.co/150x150/1a1a1a/ffffff.png?text=UNI",
   },
 ];
 
 export default function Education() {
   return (
-    <section id="education" className="w-full py-8 md:py-12 lg:py-16">
+    <section id="education" className="w-full py-20 bg-black text-white border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter bg-gradient-to-r from-purple-400 to-indigo-500 text-transparent bg-clip-text inline-block">
-            Education
-          </h2>
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-4 mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">EDUCATION</h2>
+          <p className="max-w-2xl mx-auto text-gray-400 text-lg">
             My academic background and qualifications.
           </p>
-        </div>
-        <div className="space-y-12">
+        </motion.div>
+
+        <div className="space-y-8">
           {education.map((edu, index) => (
-            <EducationCard key={index} education={edu} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+            >
+              <EducationCard education={edu} />
+            </motion.div>
           ))}
         </div>
       </div>
@@ -77,36 +90,42 @@ export default function Education() {
 
 function EducationCard({ education }: { education: Education }) {
   return (
-    <Card className="grid md:grid-cols-4 gap-8 p-6">
-      <div className="md:col-span-1">
+    <Card className="grid md:grid-cols-4 gap-8 p-8 bg-black border border-white/10 hover:border-white/30 transition-colors duration-300">
+      <div className="md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
         <Image
           src={education.image}
           alt={`${education.institution} logo`}
-          width={50}
-          height={50}
-          className="rounded-full mb-4 object-cover"
+          width={80}
+          height={80}
+          className="rounded-full mb-4 object-cover grayscale border border-white/10"
         />
-        <CardTitle className="text-xl font-bold text-white">
+        <CardTitle className="text-xl font-bold text-white mb-1">
           {education.degree}
         </CardTitle>
-        <p className="text-gray-300">{education.institution}</p>
-        <p className="text-gray-400 text-sm">{education.date}</p>
+        <p className="text-gray-300 font-medium mb-2">{education.institution}</p>
+        <Badge variant="outline" className="border-white/20 text-gray-400 font-normal">
+          {education.date}
+        </Badge>
       </div>
-      <CardContent className="md:col-span-3 space-y-4 p-0">
-        <ul className="list-disc list-inside space-y-2 text-gray-300">
+      <CardContent className="md:col-span-3 space-y-6 p-0 pt-4 md:pt-0">
+        <ul className="list-disc list-inside space-y-2 text-gray-300 ml-2">
           {education.description.map((desc, descIndex) => (
-            <li key={descIndex}>{desc}</li>
+            <li key={descIndex} className="text-base leading-relaxed pl-2 -indent-2">{desc}</li>
           ))}
         </ul>
-        <div className="flex flex-wrap gap-2">
-          {education.relevantCourses.map((course, courseIndex) => (
-            <Badge
-              key={courseIndex}
-              className="bg-white/10 backdrop-blur-sm border-none text-gray-200"
-            >
-              {course}
-            </Badge>
-          ))}
+        <div className="space-y-2">
+          <p className="text-sm text-gray-500 uppercase tracking-wider font-semibold">Relevant Courses</p>
+          <div className="flex flex-wrap gap-2">
+            {education.relevantCourses.map((course, courseIndex) => (
+              <Badge
+                key={courseIndex}
+                variant="secondary"
+                className="bg-white/5 hover:bg-white/10 text-gray-300 border-none rounded-md px-3 py-1"
+              >
+                {course}
+              </Badge>
+            ))}
+          </div>
         </div>
       </CardContent>
     </Card>
