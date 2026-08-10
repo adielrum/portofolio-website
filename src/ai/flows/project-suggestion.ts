@@ -29,7 +29,23 @@ const SuggestNewProjectsOutputSchema = z.object({
 export type SuggestNewProjectsOutput = z.infer<typeof SuggestNewProjectsOutputSchema>;
 
 export async function suggestNewProjects(input: SuggestNewProjectsInput): Promise<SuggestNewProjectsOutput> {
-  return suggestNewProjectsFlow(input);
+  if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+    return {
+      suggestedProjects: [
+        "Please configure GEMINI_API_KEY in .env.local to get live AI project suggestions.",
+      ],
+    };
+  }
+  try {
+    return await suggestNewProjectsFlow(input);
+  } catch (error: any) {
+    console.error('Genkit Suggestion Error:', error);
+    return {
+      suggestedProjects: [
+        "Could not connect to Gemini API. Please check your GEMINI_API_KEY in .env.local.",
+      ],
+    };
+  }
 }
 
 const prompt = ai.definePrompt({
@@ -56,10 +72,7 @@ const suggestNewProjectsFlow = ai.defineFlow(
     outputSchema: SuggestNewProjectsOutputSchema,
   },
   async input => {
-    const {output} = await prompt({
-      ...input,
-      suggestedProjects: [],
-    });
+    const {output} = await prompt(input);
     return output!;
   }
 );

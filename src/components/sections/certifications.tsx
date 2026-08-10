@@ -12,7 +12,6 @@ import { motion } from 'framer-motion';
 import { certifications } from "@/data";
 import type { Certification } from "@/lib/types";
 
-
 export default function Certifications() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -39,7 +38,7 @@ export default function Certifications() {
   };
 
   return (
-    <section id="certifications" className="w-full py-20 bg-black text-white border-t border-white/10">
+    <section id="certifications" className="w-full py-20 bg-[#EFE8DE] text-[#241E1A] border-t border-[#E2D8CC]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,8 +47,8 @@ export default function Certifications() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4 mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">CERTIFICATIONS</h2>
-          <p className="max-w-2xl mx-auto text-gray-400 text-lg">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#241E1A]">CERTIFICATIONS</h2>
+          <p className="max-w-2xl mx-auto text-[#63574D] text-lg">
             Professional validations of my technical expertise.
           </p>
         </motion.div>
@@ -57,7 +56,7 @@ export default function Certifications() {
         <div className="relative group">
           {showLeftArrow && (
             <Button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/80 text-white border border-white/20 rounded-full h-12 w-12 hidden md:flex"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-[#FAF8F5]/80 hover:bg-[#241E1A] text-[#241E1A] hover:text-[#FAF8F5] border border-[#E2D8CC] rounded-full h-12 w-12 hidden md:flex shadow-md"
               size="icon"
               onClick={() => scroll(-300)}
             >
@@ -86,7 +85,7 @@ export default function Certifications() {
 
           {showRightArrow && (
             <Button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-black/50 hover:bg-black/80 text-white border border-white/20 rounded-full h-12 w-12 hidden md:flex"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-[#FAF8F5]/80 hover:bg-[#241E1A] text-[#241E1A] hover:text-[#FAF8F5] border border-[#E2D8CC] rounded-full h-12 w-12 hidden md:flex shadow-md"
               size="icon"
               onClick={() => scroll(300)}
             >
@@ -101,29 +100,29 @@ export default function Certifications() {
 
 function CertificationCard({ certification }: { certification: Certification }) {
   return (
-    <Card className="relative h-full bg-black border border-white/10 hover:border-white/30 transition-all duration-300 group/card overflow-hidden">
+    <Card className="relative h-full bg-[#FAF8F5] border border-[#E2D8CC] hover:border-[#C88A42]/50 shadow-sm transition-all duration-300 group/card overflow-hidden">
       <div className="p-8 flex flex-col items-center text-center h-full">
         <div className="relative mb-6">
-          <div className="absolute inset-0 bg-white/5 blur-xl rounded-full transform group-hover/card:scale-110 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-[#C88A42]/10 blur-xl rounded-full transform group-hover/card:scale-110 transition-transform duration-500" />
           <Image
             src={certification.image}
             alt={certification.title}
             width={80}
             height={80}
-            className="relative rounded-full object-cover grayscale group-hover/card:grayscale-0 transition-all duration-500 border border-white/10"
+            className="relative rounded-full object-cover border border-[#E2D8CC]"
           />
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-2 group-hover/card:text-gray-200 transition-colors">
+        <h3 className="text-xl font-bold text-[#241E1A] mb-2 group-hover/card:text-[#C88A42] transition-colors">
           {certification.title}
         </h3>
 
-        <p className="text-gray-400 text-sm mb-4 font-medium tracking-wide uppercase">
+        <p className="text-[#63574D] text-sm mb-4 font-medium tracking-wide uppercase">
           {certification.issuer}
         </p>
 
         <div className="mt-auto space-y-4 w-full flex flex-col items-center">
-          <Badge variant="outline" className="border-white/20 text-gray-400 font-normal">
+          <Badge variant="outline" className="border-[#E2D8CC] text-[#63574D] bg-[#EFE8DE] font-normal">
             {certification.date}
           </Badge>
 
@@ -131,7 +130,7 @@ function CertificationCard({ certification }: { certification: Certification }) 
             href={certification.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center text-sm text-white hover:text-gray-300 transition-colors border-b border-transparent hover:border-white pb-0.5"
+            className="inline-flex items-center text-sm text-[#241E1A] hover:text-[#C88A42] transition-colors border-b border-transparent hover:border-[#C88A42] pb-0.5"
           >
             View Certificate <ExternalLink className="ml-2 h-3 w-3" />
           </Link>

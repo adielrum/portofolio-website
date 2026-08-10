@@ -23,7 +23,6 @@ export default function Chatbox() {
   const { toast } = useToast();
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTo({
@@ -66,7 +65,7 @@ export default function Chatbox() {
   };
 
   return (
-    <section id="chatbot" className="w-full py-20 bg-black border-t border-white/10">
+    <section id="chatbot" className="w-full py-20 bg-[#F6F2EC] border-t border-[#E2D8CC]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -74,69 +73,69 @@ export default function Chatbox() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="max-w-3xl mx-auto shadow-2xl bg-black border border-white/20">
-            <CardHeader className="text-center border-b border-white/10 pb-6">
-              <div className="mx-auto bg-white/10 p-3 rounded-full w-fit mb-4 border border-white/20">
-                <Sparkles className="h-6 w-6 text-white" />
+          <Card className="max-w-3xl mx-auto shadow-md bg-[#FAF8F5] border border-[#E2D8CC]">
+            <CardHeader className="text-center border-b border-[#E2D8CC] pb-6">
+              <div className="mx-auto bg-[#EFE8DE] p-3 rounded-full w-fit mb-4 border border-[#E2D8CC]">
+                <Sparkles className="h-6 w-6 text-[#C88A42]" />
               </div>
-              <CardTitle className="text-3xl font-bold text-white">ASK ME ANYTHING</CardTitle>
-              <CardDescription className="text-lg text-gray-400">
-                Have a question about my skills or projects? Ask my AI assistant!
+              <CardTitle className="text-3xl font-bold text-[#241E1A]">ASK ME ANYTHING</CardTitle>
+              <CardDescription className="text-lg text-[#63574D]">
+                Have a question about my background, skills, or projects? Ask my AI assistant!
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-6">
               <ScrollArea className="h-96 pr-4" ref={scrollAreaRef}>
                 <div className="space-y-6 p-4">
                   {messages.length === 0 && (
-                    <div className="flex h-full items-center justify-center text-gray-500 pt-24 italic">
+                    <div className="flex h-full items-center justify-center text-[#8C7B6D] pt-24 italic">
                       Start a conversation...
                     </div>
                   )}
                   {messages.map((message, index) => (
                     <div key={index} className={`flex items-start gap-4 ${message.role === 'user' ? 'justify-end' : ''}`}>
                       {message.role === 'assistant' && (
-                        <Avatar className="border border-white/20">
-                          <AvatarImage src="https://placehold.co/40x40/000000/ffffff.png?text=AI" alt="AI Assistant" />
-                          <AvatarFallback className="bg-black text-white">AI</AvatarFallback>
+                        <Avatar className="border border-[#E2D8CC]">
+                          <AvatarImage src="https://placehold.co/40x40/FAF8F5/241E1A.png?text=AI" alt="AI Assistant" />
+                          <AvatarFallback className="bg-[#EFE8DE] text-[#241E1A]">AI</AvatarFallback>
                         </Avatar>
                       )}
                       <div className={`rounded-lg p-4 max-w-sm lg:max-w-md shadow-sm text-sm leading-relaxed ${message.role === 'user'
-                          ? 'bg-white text-black'
-                          : 'bg-white/10 text-gray-200 border border-white/10'
+                          ? 'bg-[#241E1A] text-[#FAF8F5]'
+                          : 'bg-[#EFE8DE] text-[#241E1A] border border-[#E2D8CC]'
                         }`}>
                         <p>{message.content}</p>
                       </div>
                       {message.role === 'user' && (
-                        <Avatar className="border border-white/20">
-                          <AvatarImage src="https://placehold.co/40x40/ffffff/000000.png?text=U" alt="User" />
-                          <AvatarFallback className="bg-white text-black">U</AvatarFallback>
+                        <Avatar className="border border-[#E2D8CC]">
+                          <AvatarImage src="https://placehold.co/40x40/241E1A/FAF8F5.png?text=U" alt="User" />
+                          <AvatarFallback className="bg-[#241E1A] text-[#FAF8F5]">U</AvatarFallback>
                         </Avatar>
                       )}
                     </div>
                   ))}
                   {isLoading && (
                     <div className="flex items-start gap-4">
-                      <Avatar className="border border-white/20">
-                        <AvatarImage src="https://placehold.co/40x40/000000/ffffff.png?text=AI" alt="AI Assistant" />
-                        <AvatarFallback className="bg-black text-white">AI</AvatarFallback>
+                      <Avatar className="border border-[#E2D8CC]">
+                        <AvatarImage src="https://placehold.co/40x40/FAF8F5/241E1A.png?text=AI" alt="AI Assistant" />
+                        <AvatarFallback className="bg-[#EFE8DE] text-[#241E1A]">AI</AvatarFallback>
                       </Avatar>
-                      <div className="rounded-lg p-4 bg-white/10 flex items-center justify-center border border-white/10">
-                        <Loader2 className="h-5 w-5 animate-spin text-white" />
+                      <div className="rounded-lg p-4 bg-[#EFE8DE] flex items-center justify-center border border-[#E2D8CC]">
+                        <Loader2 className="h-5 w-5 animate-spin text-[#241E1A]" />
                       </div>
                     </div>
                   )}
                 </div>
               </ScrollArea>
-              <form onSubmit={handleSubmit} className="mt-6 flex items-center gap-2 border-t border-white/10 pt-6">
+              <form onSubmit={handleSubmit} className="mt-6 flex items-center gap-2 border-t border-[#E2D8CC] pt-6">
                 <Input
                   type="text"
-                  placeholder="e.g., 'What are your strongest skills?'"
+                  placeholder="e.g., 'Tell me about your ITB background or projects'"
                   value={input}
                   onChange={handleInputChange}
                   disabled={isLoading}
-                  className="flex-1 bg-black border-white/20 focus:border-white text-white placeholder:text-gray-600"
+                  className="flex-1 bg-[#FAF8F5] border-[#E2D8CC] focus:border-[#241E1A] text-[#241E1A] placeholder:text-[#9E9085]"
                 />
-                <Button type="submit" disabled={isLoading || !input.trim()} size="icon" className="bg-white text-black hover:bg-gray-200 transition-colors">
+                <Button type="submit" disabled={isLoading || !input.trim()} size="icon" className="bg-[#241E1A] text-[#FAF8F5] hover:bg-[#3D332D] transition-colors shadow-sm">
                   <CornerDownLeft className="h-4 w-4" />
                   <span className="sr-only">Submit</span>
                 </Button>

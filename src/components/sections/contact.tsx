@@ -40,7 +40,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full py-20 bg-black text-white border-t border-white/10">
+    <section id="contact" className="w-full py-20 bg-[#EFE8DE] text-[#241E1A] border-t border-[#E2D8CC]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-xl mx-auto">
           <motion.div
@@ -50,8 +50,8 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="text-center space-y-4 mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">GET IN TOUCH</h2>
-            <p className="text-gray-400 text-lg">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#241E1A]">GET IN TOUCH</h2>
+            <p className="text-[#63574D] text-lg">
               Have a project in mind or just want to say hello? I'd love to hear from you.
             </p>
           </motion.div>
@@ -69,12 +69,12 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-300">Name</FormLabel>
+                      <FormLabel className="text-[#4A3F35] font-medium">Name</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Your Name"
                           {...field}
-                          className="bg-black border-white/20 focus:border-white transition-colors text-white placeholder:text-gray-600"
+                          className="bg-[#FAF8F5] border-[#E2D8CC] focus:border-[#241E1A] transition-colors text-[#241E1A] placeholder:text-[#9E9085]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -86,12 +86,12 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-300">Email</FormLabel>
+                      <FormLabel className="text-[#4A3F35] font-medium">Email</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="your.email@example.com"
                           {...field}
-                          className="bg-black border-white/20 focus:border-white transition-colors text-white placeholder:text-gray-600"
+                          className="bg-[#FAF8F5] border-[#E2D8CC] focus:border-[#241E1A] transition-colors text-[#241E1A] placeholder:text-[#9E9085]"
                         />
                       </FormControl>
                       <FormMessage />
@@ -103,20 +103,20 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-300">Message</FormLabel>
+                      <FormLabel className="text-[#4A3F35] font-medium">Message</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Your message here..."
                           {...field}
                           rows={6}
-                          className="bg-black border-white/20 focus:border-white transition-colors text-white placeholder:text-gray-600 resize-none"
+                          className="bg-[#FAF8F5] border-[#E2D8CC] focus:border-[#241E1A] transition-colors text-[#241E1A] placeholder:text-[#9E9085] resize-none"
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full bg-white text-black hover:bg-gray-200 transition-colors" disabled={form.formState.isSubmitting}>
+                <Button type="submit" size="lg" className="w-full bg-[#241E1A] text-[#FAF8F5] hover:bg-[#3D332D] transition-colors shadow-md" disabled={form.formState.isSubmitting}>
                   <Send className="mr-2 h-4 w-4" />
                   Send Message
                 </Button>

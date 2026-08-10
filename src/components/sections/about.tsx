@@ -6,10 +6,9 @@ import { motion } from 'framer-motion';
 
 import { skills } from '@/data';
 
-
 export default function About() {
   return (
-    <section id="about" className="w-full py-20 bg-black text-white border-t border-white/10">
+    <section id="about" className="w-full py-20 bg-[#EFE8DE] text-[#241E1A] border-t border-[#E2D8CC]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -19,15 +18,15 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative w-full aspect-[4/5] rounded-none overflow-hidden border border-white/20">
+            <div className="relative w-full aspect-[4/5] rounded-none overflow-hidden border border-[#E2D8CC] shadow-md">
               <Image
-                src="https://placehold.co/400x500/1a1a1a/ffffff.png?text=About+Me"
+                src="https://placehold.co/400x500/FAF8F5/241E1A.png?text=About+Me"
                 alt="About me"
                 fill
-                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="object-cover transition-all duration-500 hover:scale-105"
               />
               {/* Decorative frame */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border border-white/10 -z-10" />
+              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#E2D8CC] -z-10 bg-[#FAF8F5]/50" />
             </div>
           </motion.div>
 
@@ -39,18 +38,18 @@ export default function About() {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">ABOUT ME</h2>
-              <div className="w-20 h-1 bg-white" />
-              <p className="text-gray-400 text-lg leading-relaxed">
-                I am a passionate and results-driven professional with a dual focus in web/app development and data science. My journey in technology started with a fascination for how data can tell stories and how code can build worlds. Today, I channel that passion into creating elegant, efficient, and impactful digital solutions.
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#241E1A]">ABOUT ME</h2>
+              <div className="w-20 h-1 bg-[#241E1A]" />
+              <p className="text-[#63574D] text-lg leading-relaxed">
+                I am an undergraduate student in Mathematics with a minor in Computer Science at Institut Teknologi Bandung (ITB) holding a cumulative GPA of 3.96/4.0 and 5 consecutive Dean's List honors.
               </p>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Whether I'm architecting a full-stack application, training a neural network, or visualizing complex datasets, I bring a commitment to quality and a user-centric mindset. I thrive in collaborative environments and am always eager to learn new technologies and tackle challenging problems.
+              <p className="text-[#63574D] text-lg leading-relaxed">
+                My experience spans Data Analyst Internship at Otoritas Jasa Keuangan (OJK), Research Assistantship at PPMS ITB in mathematical optimization, ITB Data Analysis Laboratory Assistantship, and leading national Data Science competitions.
               </p>
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold tracking-tight">MY SKILLS</h3>
+              <h3 className="text-2xl font-bold tracking-tight text-[#241E1A]">MY SKILLS</h3>
               <div className="space-y-6">
                 {Object.entries(skills).map(([category, skillList], index) => (
                   <motion.div
@@ -60,13 +59,13 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * index }}
                   >
-                    <h4 className="font-semibold text-white mb-3 uppercase tracking-wider text-sm">{category}</h4>
+                    <h4 className="font-semibold text-[#241E1A] mb-3 uppercase tracking-wider text-sm">{category}</h4>
                     <div className="flex flex-wrap gap-2">
                       {skillList.map((skill) => (
                         <Badge
                           key={skill}
                           variant="outline"
-                          className="border-white/20 text-gray-300 hover:text-white hover:border-white transition-colors py-1 px-3 text-sm font-normal rounded-full"
+                          className="border-[#D6CBBF] text-[#4A3F35] bg-[#FAF8F5] hover:text-[#241E1A] hover:border-[#241E1A] transition-colors py-1 px-3 text-sm font-normal rounded-full shadow-sm"
                         >
                           {skill}
                         </Badge>

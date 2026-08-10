@@ -5,7 +5,7 @@ export type Project = {
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
-  category: 'Data Science' | 'Web Development' | 'App Development';
+  category: 'Web Dev' | 'Data Science & Math' | 'Algorithms & Optimization' | 'Data Science' | 'Web Development' | 'App Development';
   dataAiHint?: string;
 };
 

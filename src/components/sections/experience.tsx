@@ -7,10 +7,9 @@ import { motion } from 'framer-motion';
 
 import { experience } from '@/data';
 
-
 export default function Experience() {
   return (
-    <section id="experience" className="w-full py-20 bg-black text-white border-t border-white/10">
+    <section id="experience" className="w-full py-20 bg-[#EFE8DE] text-[#241E1A] border-t border-[#E2D8CC]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,15 +18,15 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4 mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">EXPERIENCE</h2>
-          <p className="max-w-2xl mx-auto text-gray-400 text-lg">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#241E1A]">EXPERIENCE</h2>
+          <p className="max-w-2xl mx-auto text-[#63574D] text-lg">
             My professional journey and contributions.
           </p>
         </motion.div>
 
         <div className="space-y-8 relative">
           {/* Vertical Line for Timeline (Desktop) */}
-          <div className="hidden md:block absolute left-[28px] top-4 bottom-4 w-[1px] bg-white/20" />
+          <div className="hidden md:block absolute left-[28px] top-4 bottom-4 w-[1px] bg-[#E2D8CC]" />
 
           {experience.map((item, index) => (
             <motion.div
@@ -39,17 +38,17 @@ export default function Experience() {
             >
               <div className="relative pl-0 md:pl-20">
                 {/* Timeline Dot (Desktop) */}
-                <div className="hidden md:flex absolute left-0 top-0 w-14 h-14 items-center justify-center bg-black border border-white/20 rounded-full z-10">
+                <div className="hidden md:flex absolute left-0 top-0 w-14 h-14 items-center justify-center bg-[#FAF8F5] border border-[#E2D8CC] rounded-full z-10 shadow-sm">
                   <Image
                     src={item.image}
                     alt={`${item.company} logo`}
                     width={30}
                     height={30}
-                    className="rounded-full object-cover grayscale"
+                    className="rounded-full object-cover"
                   />
                 </div>
 
-                <Card className="bg-black border border-white/10 hover:border-white/30 transition-colors duration-300">
+                <Card className="bg-[#FAF8F5] border border-[#E2D8CC] hover:border-[#C88A42]/50 shadow-sm transition-colors duration-300">
                   <CardHeader className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2">
                     <div className="flex items-center gap-4 md:gap-0">
                       <Image
@@ -57,26 +56,26 @@ export default function Experience() {
                         alt={`${item.company} logo`}
                         width={40}
                         height={40}
-                        className="rounded-full object-cover grayscale md:hidden"
+                        className="rounded-full object-cover md:hidden"
                       />
                       <div>
-                        <CardTitle className="text-xl font-bold text-white">{item.title}</CardTitle>
-                        <p className="text-gray-400 font-medium">{item.company}</p>
+                        <CardTitle className="text-xl font-bold text-[#241E1A]">{item.title}</CardTitle>
+                        <p className="text-[#63574D] font-medium">{item.company}</p>
                       </div>
                     </div>
-                    <Badge variant="outline" className="w-fit border-white/20 text-gray-400 rounded-full px-4 py-1">
+                    <Badge variant="outline" className="w-fit border-[#E2D8CC] text-[#63574D] bg-[#EFE8DE] rounded-full px-4 py-1">
                       {item.duration}
                     </Badge>
                   </CardHeader>
                   <CardContent className="space-y-6 pt-4">
-                    <ul className="list-disc list-inside space-y-2 text-gray-300 ml-2">
+                    <ul className="list-disc list-inside space-y-2 text-[#4A3F35] ml-2">
                       {item.description.map((desc, descIndex) => (
                         <li key={descIndex} className="text-base leading-relaxed pl-2 -indent-2">{desc}</li>
                       ))}
                     </ul>
                     <div className="flex flex-wrap gap-2 pt-2">
                       {item.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="secondary" className="bg-white/5 hover:bg-white/10 text-gray-300 border-none rounded-md px-3 py-1">
+                        <Badge key={techIndex} variant="secondary" className="bg-[#EFE8DE] text-[#4A3F35] border-none rounded-md px-3 py-1">
                           {tech}
                         </Badge>
                       ))}

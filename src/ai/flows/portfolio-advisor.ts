@@ -22,7 +22,25 @@ const ImproveProjectDescriptionOutputSchema = z.object({
 export type ImproveProjectDescriptionOutput = z.infer<typeof ImproveProjectDescriptionOutputSchema>;
 
 export async function improveProjectDescription(input: ImproveProjectDescriptionInput): Promise<ImproveProjectDescriptionOutput> {
-  return improveProjectDescriptionFlow(input);
+  if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+    return {
+      improvedDescription: "To receive live AI suggestions, please add your GEMINI_API_KEY to the .env.local file in the project root.",
+      suggestions: [
+        "Create or open .env.local in the root directory",
+        "Add GEMINI_API_KEY=your_gemini_api_key",
+        "Restart dev server",
+      ],
+    };
+  }
+  try {
+    return await improveProjectDescriptionFlow(input);
+  } catch (error: any) {
+    console.error('Genkit Advisor Error:', error);
+    return {
+      improvedDescription: "Could not connect to Gemini API. Please check your GEMINI_API_KEY in .env.local.",
+      suggestions: ["Check GEMINI_API_KEY validity"],
+    };
+  }
 }
 
 const prompt = ai.definePrompt({

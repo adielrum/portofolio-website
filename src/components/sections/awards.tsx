@@ -1,6 +1,5 @@
 'use client';
 
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -9,10 +8,9 @@ import { Trophy } from "lucide-react";
 import { awards } from "@/data";
 import type { Award } from "@/lib/types";
 
-
 export default function Awards() {
   return (
-    <section id="awards" className="w-full py-20 bg-black text-white border-t border-white/10">
+    <section id="awards" className="w-full py-20 bg-[#F6F2EC] text-[#241E1A] border-t border-[#E2D8CC]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,12 +19,12 @@ export default function Awards() {
           transition={{ duration: 0.5 }}
           className="text-center space-y-4 mb-16"
         >
-          <div className="mx-auto bg-white/10 p-3 rounded-full w-fit mb-4 border border-white/20">
-            <Trophy className="h-8 w-8 text-white" />
+          <div className="mx-auto bg-[#EFE8DE] p-3 rounded-full w-fit mb-4 border border-[#E2D8CC]">
+            <Trophy className="h-8 w-8 text-[#C88A42]" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">AWARDS & RECOGNITION</h2>
-          <p className="max-w-2xl mx-auto text-gray-400 text-lg">
-            Honors and achievements from my professional journey.
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#241E1A]">AWARDS & RECOGNITION</h2>
+          <p className="max-w-2xl mx-auto text-[#63574D] text-lg">
+            Honors and achievements from my professional & academic journey.
           </p>
         </motion.div>
 
@@ -50,29 +48,29 @@ export default function Awards() {
 
 function AwardCard({ award }: { award: Award }) {
   return (
-    <Card className="h-full p-8 bg-black border border-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-1">
+    <Card className="h-full p-8 bg-[#FAF8F5] border border-[#E2D8CC] hover:border-[#C88A42]/50 shadow-sm transition-all duration-300 hover:-translate-y-1">
       <div className="flex flex-col items-center text-center space-y-4">
         <div className="relative">
-          <div className="absolute inset-0 bg-white/5 blur-xl rounded-full" />
+          <div className="absolute inset-0 bg-[#C88A42]/10 blur-xl rounded-full" />
           <Image
             src={award.image}
             alt={`${award.issuer} logo`}
             width={80}
             height={80}
-            className="relative rounded-full object-cover grayscale border border-white/10"
+            className="relative rounded-full object-cover border border-[#E2D8CC]"
           />
         </div>
 
         <div>
-          <CardTitle className="text-xl font-bold text-white mb-2">
+          <CardTitle className="text-xl font-bold text-[#241E1A] mb-2">
             {award.title}
           </CardTitle>
-          <p className="text-gray-300 font-medium">{award.issuer}</p>
-          <p className="text-gray-500 text-sm mt-1">{award.date}</p>
+          <p className="text-[#63574D] font-medium">{award.issuer}</p>
+          <p className="text-[#8C7B6D] text-sm mt-1">{award.date}</p>
         </div>
 
         <CardContent className="p-0 pt-2">
-          <p className="text-gray-400 leading-relaxed">{award.description}</p>
+          <p className="text-[#4A3F35] leading-relaxed">{award.description}</p>
         </CardContent>
       </div>
     </Card>
